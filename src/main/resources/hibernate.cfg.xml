@@ -3,16 +3,26 @@
     "-//Hibernate/Hibernate Configuration DTD//EN"
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="connection.url">jdbc:mysql://localhost:3306/hibernate_tutorial</property>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <!-- NOTE that after automapping with IDEA property username and password will delete -->
-    <!--and will be:  Initial SessionFactory failedorg.hibernate.service.spi.ServiceException: Unable to create requested service-->
-    <property name="connection.username">hibernate</property>
-    <property name="connection.password">hibernate</property>
-    <!-- NOTE that after automapping with IDEA property username and password will delete -->
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
+    <session-factory>
+        <!--Настройки соединения с базой данных-->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate_tutorial</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <!-- NOTE that after automapping with IDEA property username and password will delete -->
+        <!--and will be:  Initial SessionFactory failedorg.hibernate.service.spi.ServiceException: Unable to create requested service-->
+        <property name="connection.username">hibernate</property>
+        <property name="connection.password">hibernate</property>
+        <!-- NOTE that after automapping with IDEA property username and password will delete -->
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+
+        <!--JDBC пул соединений (Используется встроенный)-->
+        <property name="connection.pool_size">1</property>
+
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">create</property>
+
+        <!--Mapping classes-->
+        <mapping class="com.cyberterror.hibernate_tutorial.dao.lesson1.UserDetails"/>
   </session-factory>
 </hibernate-configuration>

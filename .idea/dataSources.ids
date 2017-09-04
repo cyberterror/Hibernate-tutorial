@@ -8,22 +8,16 @@
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
       <schema id="1" name="hibernate_tutorial"/>
-      <table id="2" parent="1" name="test_table"/>
-      <column id="3" parent="2" name="id">
+      <table id="2" parent="1" name="UserDetails"/>
+      <column id="3" parent="2" name="userId">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="4" parent="2" name="name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(40)</data-type>
+      <column id="4" parent="2" name="userName">
+        <data-type>varchar(255)</data-type>
       </column>
-      <column id="5" parent="2" name="phone">
-        <mandatory>1</mandatory>
-        <data-type>varchar(10)</data-type>
-      </column>
-      <key id="6" parent="2" name="PRIMARY">
-        <columns>id</columns>
+      <key id="5" parent="2" name="PRIMARY">
+        <columns>userId</columns>
         <primary>1</primary>
       </key>
     </database-model>
